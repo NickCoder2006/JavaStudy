@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="study.javas.springboot.mapper.UserMapper" >
+    <resultMap id="BaseResultMap" type="study.javas.springboot.bean.User" >
+        <id column="id" property="id" jdbcType="INTEGER" />
+        <result column="name" property="name" jdbcType="VARCHAR" />
+        <result column="age" property="age" jdbcType="INTEGER" />
+    </resultMap>
+
+    <select id="getUserList" resultMap="BaseResultMap"  >
+        SELECT
+        id, name, age
+        FROM tb_user
+    </select>
+
+    <select id="getUserById" parameterType="java.lang.Integer" resultMap="BaseResultMap" >
+        SELECT
+        id, name, age
+        FROM tb_user
+        WHERE id = #{id}
+    </select>
+
+    <insert id="add" parameterType="study.javas.springboot.bean.User" >
+        INSERT INTO
+        tb_user
+        (name,age)
+        VALUES
+        (#{name}, #{age})
+    </insert>
+
+    <update id="update" parameterType="java.util.Map" >
+        UPDATE
+        tb_user
+        SET
+        name = #{user.name},age = #{user.age}
+        WHERE
+        id = #{id}
+    </update>
+
+    <delete id="delete" parameterType="java.lang.Integer" >
+        DELETE FROM
+        tb_user
+        WHERE
+        id = #{id}
+    </delete>
+</mapper>
