@@ -26,7 +26,7 @@ public interface UserService {
     /**
      * 添加用户
      * @param user 用户信息
-     * @return 用户编号
+     * @return
      */
     int add(User user);
 
@@ -34,14 +34,14 @@ public interface UserService {
      * 修改用户信息
      * @param id 用户编号
      * @param user 用户信息
-     * @return 用户编号
+     * @return
      */
     int update(Integer id, User user);
 
     /**
      * 根据用户编号删除指定用户
      * @param id 用户编号
-     * @return 用户编号
+     * @return
      */
     int delete(Integer id);
 }
